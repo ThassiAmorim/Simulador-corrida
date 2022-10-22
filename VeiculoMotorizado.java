@@ -13,7 +13,7 @@ public abstract class VeiculoMotorizado extends Veiculo {
         this.combustivel = 2.5f;
         this.valorIPVA = valorIPVA;
         this.valor = valor;
-    }
+    };//teste
 
     
 
