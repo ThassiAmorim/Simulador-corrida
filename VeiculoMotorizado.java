@@ -14,14 +14,14 @@ public abstract class VeiculoMotorizado extends Veiculo {
 
     private float valor;
     
-    public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA, float valor){
+    public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA){
 
         Random r = new Random();
         super(id, quantidadeRodas);
         this.combustivel = 2.5f;
-        this.valorIPVA = valorIPVA;
         this.pagoIPVA = r.nextBoolean();
-        this.valor = valor;
+        this.valorIPVA = valorIPVA;
+        this.valor = r.nextFloat(1000)*100;
     };
 
     public float getCombustivel() {

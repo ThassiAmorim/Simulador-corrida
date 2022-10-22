@@ -2,17 +2,17 @@ public class Esportivo extends VeiculoMotorizado implements IPVA {
     private String[] desenho;
 
 
-    public Esportivo(int id, int quantidadeRodas, float valorIPVA, float valor){
-        super(id, quantidadeRodas, valorIPVA, valor);
+    public Esportivo(int id){
+        super(id, 4, this.calcularIPVA());;
         
-        System.out.println("
-                __\n
-                ~( @\ \\n
-            _____]_[_/_>____\n
-            /  __ \<>  |  __ \\n
-        =\_/__\_\___|_/__\_D\n
-            (__)       (__)    \n
-        ");
+    
+        desenho[0] = "           __\n"
+        desenho[1] = "        ~( @\ \\n"
+        desenho[2] = "       _]_[_/_>____\n"
+        desenho[3] = "    /  __ \<>  |  __ \\n"
+        desenho[4] = "    \_/__\_\___|_/__\_D\n"
+        desenho[5] = "      (__)       (__)    \n"
+        
 
     }
 
