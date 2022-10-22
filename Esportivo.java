@@ -14,12 +14,32 @@ public class Esportivo extends VeiculoMotorizado implements IPVA {
             (__)       (__)    \n
         ");
 
-    }//teste
+    }
 
     public boolean mover(){
-        //ifs
-
-        super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
+        
+        boolean valida = true;
+        if(super.getCombustivel() < this.GASTOESPORTIVO){
+            System.out.println("Combustivel insuficiente");
+            valida = false;
+        }
+        for(int i = 0; i < this.quantidadeRodas; i++){
+            if(this.rodasVeiculo[i].getCalibragemPneu() == false){
+                System.out.println("Rodas descalibradas");
+                valida = false;
+                break;
+            }
+        }
+        if(!this.isPagoIPVA()){
+            System.out.println("Ipva nao pago");
+            valida = false;
+        }
+        
+        if(valida){
+            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
+        }
+        
+        return valida;
     }
 
     public float calcularIPVA(){
