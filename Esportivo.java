@@ -16,7 +16,7 @@ public class Esportivo extends VeiculoMotorizado implements IPVA {
 
     }
 
-    public boolean mover(){//teste
+    public boolean mover(){//teste 2
         
         boolean valida = true;
         if(super.getCombustivel() < this.GASTOESPORTIVO){
