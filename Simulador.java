@@ -5,7 +5,7 @@ public class Simulador {
     Veiculo[] competidores = new Veiculo[20];
     int qtdVeiculos;
 
-    public incluirVeiculo(int tipo){
+    public incluirVeiculo(int tipo){/teste
 
         for(int i = 0; i < this.qtdVeiculos; i++){
 

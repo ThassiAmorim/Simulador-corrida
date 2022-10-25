@@ -12,7 +12,7 @@ public abstract class VeiculoMotorizado extends Veiculo {
     private boolean pagoIPVA;
     
 
-    private float valor;
+    private float valor;/teste
     
     public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA){
 

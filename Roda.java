@@ -4,7 +4,7 @@ public class Roda {
     
     private boolean calibragemPneu;
 
-    public Roda(){
+    public Roda(){/teste
         Random r = new Random();
         this.calibragemPneu = r.nextBoolean();
     }
