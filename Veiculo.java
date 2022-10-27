@@ -28,7 +28,14 @@ public abstract class Veiculo {
         this.distanciaPercorrida = distanciaPercorrida;
     }
         
-    
+    public boolean rodasCalibradas(){
+        for(int i = 0; i < quantidadeRodas;i++){
+            if(!rodasVeiculo[i].getCalibragemPneu()){
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }
