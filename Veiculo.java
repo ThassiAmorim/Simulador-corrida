@@ -11,6 +11,7 @@ public abstract class Veiculo {
         this.id = id;
         this.distanciaPercorrida = 0;
         this.quantidadeRodas = quantidadeRodas;
+        this.rodasVeiculo = new Roda[quantidadeRodas];
         
         for(int i = 0; i < quantidadeRodas; i++){
             rodasVeiculo[i] = new Roda();
