@@ -6,22 +6,21 @@ public abstract class VeiculoMotorizado extends Veiculo {
     private static final float GASTOPASSEIO = 0.75f;
     private static final float GASTOESPORTIVO = 2.3f;
     
-
     private float combustivel;
     private float valorIPVA;
     private boolean pagoIPVA;
     
 
-    private float valor;/teste
+    private float valor;
     
-    public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA){
+    public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA, float valor){
 
         Random r = new Random();
         super(id, quantidadeRodas);
         this.combustivel = 2.5f;
         this.pagoIPVA = r.nextBoolean();
         this.valorIPVA = valorIPVA;
-        this.valor = r.nextFloat(1000)*100;
+        this.valor = valor;
     };
 
     public float getCombustivel() {
