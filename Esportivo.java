@@ -3,7 +3,7 @@ public class Esportivo extends VeiculoMotorizado implements IPVA {
 
 
     public Esportivo(int id){
-        super(id, 4, this.calcularIPVA());;
+        super(id, 4, this.calcularIPVA());/mod
         
     
         desenho[0] = "           __\n"
