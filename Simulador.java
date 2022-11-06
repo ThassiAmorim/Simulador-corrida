@@ -46,3 +46,7 @@ public class Simulador {
         }
     }
 }
+
+    public boolean RemoveVeiculo(int id){
+
+    }
