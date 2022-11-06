@@ -38,4 +38,8 @@ public abstract class Veiculo {
     }
 
 
+    public String toString(){
+        return "ID: " + this.id + ".\n";
+    }
+
 }

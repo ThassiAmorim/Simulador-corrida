@@ -2,10 +2,6 @@ import java.util.Random;
 
 public abstract class VeiculoMotorizado extends Veiculo {
     
-    private static final float GASTOMOTOCICLETA = 0.25f;
-    private static final float GASTOPASSEIO = 0.75f;
-    private static final float GASTOESPORTIVO = 2.3f;
-    
     private float combustivel;
     private float valorIPVA;
     private boolean pagoIPVA;
@@ -14,26 +10,32 @@ public abstract class VeiculoMotorizado extends Veiculo {
     private float valor;
     
     public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA, float valor){
-
-        Random r = new Random();
         super(id, quantidadeRodas);
+        Random r = new Random();
         this.combustivel = 2.5f;
         this.pagoIPVA = r.nextBoolean();
         this.valorIPVA = valorIPVA;
         this.valor = valor;
-    };
+    }
 
     public float getCombustivel() {
         return combustivel;
-    }
-
-    public void setCombustivel(float combustivel) {
-        this.combustivel = combustivel;
     }
 
     public boolean isPagoIPVA() {
             return pagoIPVA;
         }
     
+    public String toString(){
+        super.toString();
+        String s = "Valor do IPVA: " + this.valorIPVA + ".\nIPVA: ";
+        if(this.pagoIPVA){
+            s += "Pago.\n";
+        }
+        else{
+            s += "Em debito.\n";
+        }
+        return s;
+    }
 
 }

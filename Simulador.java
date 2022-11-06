@@ -2,12 +2,20 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Simulador {
-    Veiculo[] competidores = new Veiculo[20];
-    int qtdVeiculos;
+    private Veiculo[] competidores;
+    private int qtdVeiculos;
+    private final int MAXVEICULOS;
+
+    public Simulador(){
+        MAXVEICULOS = 20;
+        competidores = new Veiculo[MAXVEICULOS];
+        qtdVeiculos = 0;
+    }
+
 
     public boolean incluirVeiculo(char escolha){
 
-        for(int i = 0; i < this.qtdVeiculos; i++){
+        for(int i = 0; i < this.MAXVEICULOS; i++){
 
             if(competidores[i] == null){
 
@@ -16,22 +24,24 @@ public class Simulador {
                     return false;
                 }
 
-                Random r = new Random(System.in);
+                Random r = new Random();
                 int id = r.nextInt(9000) + 1000;
+
+                switch(escolha){
+                    case 'B':
+                    competidores[i] = new Bicicleta(id); break;
+
+                    case 'M': 
+                    competidores[i] = new Motocicleta(id); break;
+                    
+                    case 'C': 
+                    competidores[i] = new CarroPasseio(id); break;
+
+                    case 'E': 
+                    competidores[i] = new Esportivo(id); break;
+                }
                 
-                if(escolha == 'B'){
-                    competidores[i] = new Bicicleta(id);
-                }
-                if(escolha == 'M'){
-                    competidores[i] = new Motocicleta(id);
-                }
-                if(escolha == 'C'){
-                    competidores[i] = new Popular(id);
-                }
-                if(escolha == 'E'){
-                    competidores[i] = new Esportivo(id);
-                }    
-                
+                qtdVeiculos++;          
             }
         }
     }
