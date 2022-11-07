@@ -6,7 +6,7 @@ public class Motocicleta extends VeiculoMotorizado implements IPVA {
 
 
     public Motocicleta(int id){
-        super(id, 4, this.calcularIPVA(), this.calcularValor());
+        super(id, 4, calcularIPVA(), calcularValor());
         
     
         desenho[0]="   ,_oo\n";

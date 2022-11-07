@@ -13,7 +13,7 @@ public class Simulador {
     }
 
 
-    public boolean incluirVeiculo(char escolha){
+    public int incluirVeiculo(char escolha){
 
         for(int i = 0; i < this.MAXVEICULOS; i++){
 
@@ -21,7 +21,7 @@ public class Simulador {
 
                 if(escolha != 'B' && escolha != 'M' && escolha != 'C' && escolha != 'E'){
                     System.out.println("Tipo invalido");
-                    return false;
+                    return -1;
                 }
 
                 Random r = new Random();
@@ -41,12 +41,15 @@ public class Simulador {
                     competidores[i] = new Esportivo(id); break;
                 }
                 
-                qtdVeiculos++;          
+                qtdVeiculos++; 
+                return id;         
             }
         }
+        return -1;
     }
+
 }
 
-    public boolean RemoveVeiculo(int id){
+    /*public boolean RemoveVeiculo(int id){
 
-    }
+    }*/

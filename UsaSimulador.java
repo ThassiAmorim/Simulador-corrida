@@ -12,9 +12,13 @@ public class UsaSimulador {
 
             switch(escolha){
 
-                case 1:
-                    if(s.incluirVeiculo('A')){
-
+                case 1:// incluir veiculo
+                    int id = s.incluirVeiculo(pedirTipo());
+                    if(id != -1){
+                        System.out.printf("veiculo de ID: %d incluido com sucesso", id);
+                    }
+                    else{
+                        System.out.println("falha ao inserir veiculo, por favor tente novamente");
                     }
                 break;
 
@@ -91,18 +95,7 @@ public class UsaSimulador {
 
         imprimirMenu();
 
-        /*do{
-    
-            System.out.print("Digite a opcao: ");
-            escolha = teclado.nextLine();
-
-            if(valida = (escolha < 1 && escolha > 15)){
-                System.out.println("Opcao invalida");
-            }
-
-        }while(valida);*/                     // Qual ficou melhor?
-
-        try{
+       // try{// nao ta executando esse try
             System.out.print("Digite a opcao: ");
             escolha = teclado.nextInt();
 
@@ -111,18 +104,37 @@ public class UsaSimulador {
                 escolha = teclado.nextInt();
             }
 
-        }catch(Exception e){
-            System.out.println("Valor invalido");
-            
-        }
+        //}
+        /*catch(Exception e){
+          System.out.println("Valor invalido");   
+       
+     }*/
         
         return escolha;
     }
 
-    /*public static char pedirTipo(){
+    public static char pedirTipo(){
+
         Scanner teclado = new Scanner(System.in);
         System.out.println("B P M E");
-        char escolha = teclado.nextLine();
+        char escolha = 'a';
+        boolean invalido = true;
+
+       // try{
+            while(invalido){
+                System.out.println("Digite o tipo do veiculo (B, P, E, M)");
+                escolha = teclado.next().charAt(0);
+                escolha = Character.toUpperCase(escolha);
+                invalido = (escolha != 'B' && escolha != 'P' && escolha != 'E' && escolha != 'M');
+                if(invalido){
+                    System.out.println("Tipo invalido");
+                }
+            }
+       // }
+        /*catch(Exception e){
+            System.out.println("dado inserido invalido");
+        }*/
+
         return escolha;
-    }*/
+    }
 }
