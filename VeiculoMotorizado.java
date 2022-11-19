@@ -1,6 +1,7 @@
 import java.util.Random;
+import java.io.Serializable;
 
-public abstract class VeiculoMotorizado extends Veiculo {
+public abstract class VeiculoMotorizado extends Veiculo implements Serializable {
     
     private float combustivel;
     private float valorIPVA;
@@ -25,10 +26,14 @@ public abstract class VeiculoMotorizado extends Veiculo {
     public boolean isPagoIPVA() {
             return pagoIPVA;
         }
+
+    public void abastecer(float f){
+        this.combustivel += f;
+    }
     
     public String toString(){
-        super.toString();
-        String s = "Valor do IPVA: " + this.valorIPVA + ".\nIPVA: ";
+        
+        String s = super.toString() + "Valor do IPVA: " + this.valorIPVA + ".\nIPVA: ";
         if(this.pagoIPVA){
             s += "Pago.\n";
         }

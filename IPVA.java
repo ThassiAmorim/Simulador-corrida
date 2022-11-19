@@ -6,7 +6,7 @@ public interface IPVA {
     public float VALOR_BASE = 500.00f;
 
 
-    public float calcularIPVA();
+    //public float calcularIPVA();
         
     
 

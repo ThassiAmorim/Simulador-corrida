@@ -1,11 +1,20 @@
 import java.util.Scanner;
 import java.util.zip.DeflaterOutputStream;
+import java.io.IOException;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 public class UsaSimulador {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Bem Vindo ao Simulador Corrida Maluca!");
         Simulador s = new Simulador();
-        int escolha;
+        Scanner teclado = new Scanner(System.in);
+        int escolha, id;
 
         do{
             escolha = menu();
@@ -13,19 +22,59 @@ public class UsaSimulador {
             switch(escolha){
 
                 case 1:// incluir veiculo
-                    int id = s.incluirVeiculo(pedirTipo());
+                    id = s.incluirVeiculo(pedirTipo());
                     if(id != -1){
-                        System.out.printf("veiculo de ID: %d incluido com sucesso", id);
+                        System.out.println("veiculo de ID: " + id);
                     }
                     else{
-                        System.out.println("falha ao inserir veiculo, por favor tente novamente");
+                        System.out.println("Veiculo nao inserido.");
                     }
                 break;
 
                 case 2:
+                    if(s.getQtdVeiculos() > 0){
+                        id = pedirID(s);
+                        if((id != -1)){
+                            s.removerVeiculo(id);
+                            System.out.println("Veiculo removido com sucesso.");
+                        }
+                        else{
+                            System.out.println("Veiculo nao encontrado.");
+                        }
+                    }
+                    else{
+                        System.out.println("Nao ha veiculos para remover.");
+                    }
+
                 break;
 
                 case 3:
+                    /*float gas;
+                    try{
+                        do{
+                            System.out.print("Informe a quantidade de combustivel: ");
+                            gas = teclado.nextFloat();
+                            
+                            if(gas <= 0){
+                                System.out.println("Valor invalido.");
+                            }
+
+                        }while(gas <= 0);
+                    }
+                    catch(Exception e){
+                        System.out.println("Dado invalido");  
+                    }
+                    
+                    id = pedirID(s);
+
+                    if(id != -1){
+                        s.abastecerVeiculo(id, gas);
+                    }
+                    else{
+                        System.out.println("Veiculo nao encontrado."); 
+                    }*/
+
+
                 break;
 
                 case 4:
@@ -38,9 +87,11 @@ public class UsaSimulador {
                 break;
 
                 case 7:
+                    s.imprimirDados();
                 break;
 
                 case 8:
+                    s.imprimirDados(pedirTipo());
                 break;
 
                 case 9:
@@ -56,12 +107,42 @@ public class UsaSimulador {
                 break;
 
                 case 13:
+                File arquivo1 = new File("Corrida.dat");
+
+                    try{
+                        FileOutputStream fout = new FileOutputStream(arquivo1);
+                        ObjectOutputStream oos = new ObjectOutputStream(fout);
+
+                        oos.writeObject(s);
+
+                        oos.flush();
+                        oos.close();
+                        fout.close();
+                        System.out.print("\nGravado com Sucesso.\n");
+
+                    }catch(Exception ex){
+                        System.err.println("Erro: "+ ex.toString());
+                    }
                 break;
 
                 case 14:
+                File arquivo2 = new File("Corrida.dat");
+                    try{
+                        FileInputStream fin = new FileInputStream(arquivo2);
+                        ObjectInputStream oin = new ObjectInputStream(fin);
+
+                        s = (Simulador) oin.readObject(); 
+                        oin.close();
+                        fin.close();
+
+
+                    }catch(Exception ex){
+                        System.err.println("Erro: "+ ex.toString());
+                    }
                 break;
             }
-
+            System.out.print("Precione Enter para continuar...");   
+            System.in.read();
 
         }while(escolha != 15);
 
@@ -95,7 +176,7 @@ public class UsaSimulador {
 
         imprimirMenu();
 
-       // try{// nao ta executando esse try
+        try{
             System.out.print("Digite a opcao: ");
             escolha = teclado.nextInt();
 
@@ -103,38 +184,53 @@ public class UsaSimulador {
                 System.out.print("Valor Invalido\n Digite novamente: ");
                 escolha = teclado.nextInt();
             }
-
-        //}
-        /*catch(Exception e){
-          System.out.println("Valor invalido");   
-       
-     }*/
-        
-        return escolha;
+            
+            return escolha;
+        }
+        catch(Exception e){
+            System.out.println("Dado invalido");   
+            return 0;
+        }
     }
 
     public static char pedirTipo(){
 
         Scanner teclado = new Scanner(System.in);
-        System.out.println("B P M E");
         char escolha = 'a';
-        boolean invalido = true;
+        boolean invalido;
 
-       // try{
-            while(invalido){
-                System.out.println("Digite o tipo do veiculo (B, P, E, M)");
+       try{
+            do{
+                System.out.print("Digite o tipo do veiculo (B - Bicicleta, P - Carro Popular, E - Carro Esportivo, M - Motocicleta): ");
                 escolha = teclado.next().charAt(0);
                 escolha = Character.toUpperCase(escolha);
-                invalido = (escolha != 'B' && escolha != 'P' && escolha != 'E' && escolha != 'M');
+                System.out.println(escolha);
+                invalido = ((escolha != 'B') && (escolha != 'P') && (escolha != 'E') && (escolha != 'M'));
                 if(invalido){
                     System.out.println("Tipo invalido");
                 }
-            }
-       // }
-        /*catch(Exception e){
-            System.out.println("dado inserido invalido");
-        }*/
+            }while(invalido);
+        }
+        catch(Exception e){
+            System.out.println("Dado Invalido.");
+        }
 
         return escolha;
+    }
+
+    public static int pedirID(Simulador s){
+        Scanner teclado = new Scanner(System.in);
+        int id;
+
+        try{
+            System.out.print("Digite o ID do veiculo que desejas remover: ");      
+            if(s.buscarCompetidor(id = teclado.nextInt()) != -1){
+                return id;
+            }
+        }
+        catch(Exception e){
+            System.out.println("Dado Invalido.");
+        }
+        return -1;
     }
 }

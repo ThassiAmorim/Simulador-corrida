@@ -1,6 +1,7 @@
 import javax.swing.text.Utilities;
+import java.io.Serializable;
 
-public class Bicicleta extends Veiculo{
+public class Bicicleta extends Veiculo implements Serializable{
     private String[] desenho = new String[3];
 
     public Bicicleta(int id){
@@ -19,9 +20,12 @@ public class Bicicleta extends Veiculo{
             return false;
         }
 
-        super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 2);
+        //super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 2);
 
         return true;
-        
+    }
+
+    public String toString(){
+        return "Bicicleta\n" + super.toString();
     }
 }

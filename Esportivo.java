@@ -1,12 +1,13 @@
 import java.util.Random;
+import java.io.Serializable;
 
-public class Esportivo extends VeiculoMotorizado implements IPVA {
+public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
     private String[] desenho = new String[6]; 
     private static final float GASTOESPORTIVO = 2.3f;
 
 
     public Esportivo(int id){
-        super(id, 4, this.calcularIPVA(), this.calcularValor());
+        super(id, 4, IPVA.VALOR_BASE * IPVA.CTE_ESPORTIVO, (new Random()).nextFloat() * 10000);
         
     
         desenho[0] = "           __\n";
@@ -36,23 +37,23 @@ public class Esportivo extends VeiculoMotorizado implements IPVA {
         }
         
         if(valida){
-            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
+            //super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
         }
         
         return valida;
     }
 
-    public float calcularIPVA(){
+    /*public float calcularIPVA(){
         return IPVA.VALOR_BASE * IPVA.CTE_ESPORTIVO;
     }
 
     public float calcularValor(){
         Random r = new Random();
         return r.nextFloat() * 10000;
-    }
+    }*/
 
     public String toString(){
-        return super.toString();
+        return "Carro Esportivo" + super.toString();
     }
 
 }

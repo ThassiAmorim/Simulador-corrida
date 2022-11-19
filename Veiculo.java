@@ -1,6 +1,7 @@
 import java.util.Random;
+import java.io.Serializable;
 
-public abstract class Veiculo {
+public abstract class Veiculo implements Serializable{
     private int id;
     private int distanciaPercorrida;
     private Roda[] rodasVeiculo;
@@ -20,12 +21,12 @@ public abstract class Veiculo {
 
     public abstract boolean mover();
 
-    public int getDistanciaPercorrida() {
-        return distanciaPercorrida;
+    public int getID(){
+        return id;
     }
 
-    public void setDistanciaPercorrida(int distanciaPercorrida) {
-        this.distanciaPercorrida = distanciaPercorrida;
+    public int getDistanciaPercorrida() {
+        return distanciaPercorrida;
     }
         
     public boolean rodasCalibradas(){
