@@ -49,33 +49,40 @@ public class UsaSimulador {
                 break;
 
                 case 3:
-                    /*float gas;
-                    try{
-                        do{
-                            System.out.print("Informe a quantidade de combustivel: ");
-                            gas = teclado.nextFloat();
-                            
-                            if(gas <= 0){
-                                System.out.println("Valor invalido.");
-                            }
-
-                        }while(gas <= 0);
-                    }
-                    catch(Exception e){
-                        System.out.println("Dado invalido");  
-                    }
-                    
+                    float gas = 0;
                     id = pedirID(s);
 
                     if(id != -1){
-                        s.abastecerVeiculo(id, gas);
+                        try{
+                            do{
+                                System.out.print("Informe a quantidade de combustivel: ");
+                                gas = teclado.nextFloat();
+                                
+                                if(gas <= 0){
+                                    System.out.println("Valor invalido.");
+                                }
+    
+                            }while(gas <= 0);
+                        }
+                        catch(Exception e){
+                            System.out.println("Dado invalido");  
+                        }
+                        
+    
+                        
+                        if(s.abastecerVeiculo(id, gas)){
+                            System.out.println("Veiculo " + id + " abastecido com sucesso");
+                        }
+                        else{
+                            System.out.println("falha ao abastecer veiculo");
+                        }
+                        
                     }
                     else{
-                        System.out.println("Veiculo nao encontrado."); 
-                    }*/
+                        System.out.println("veiculo nao encontrado");
+                    }
 
-
-                break;
+                    break;
 
                 case 4:
                 break;
@@ -237,7 +244,7 @@ public class UsaSimulador {
                     return id;
                 }
                 
-                System.out.println("ID incorreto");
+                System.out.println("ID na encontrado");
    
                 System.out.println("IDs disponiveis");
                 s.exibirCompetidores();
@@ -246,6 +253,7 @@ public class UsaSimulador {
         }
         catch(Exception e){
             System.out.println("Dado Invalido.");
+            return -1;
         }
         return -1;
     }

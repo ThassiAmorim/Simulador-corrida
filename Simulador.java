@@ -48,6 +48,17 @@ public class Simulador implements Serializable{
         return -1;
     }
 
+    public boolean abastecerVeiculo(int id, float f){
+        int v = buscarCompetidor(id);
+        if (!(competidores[v] instanceof Bicicleta)){
+            ((VeiculoMotorizado)competidores[v]).abastecer(f);
+            
+            return true;
+        }
+        System.out.println("bicicleta nao abastece");
+        return false;
+    }
+
     public int buscarCompetidor(int ID){
         for(int i = 0; i < competidores.length; i++){
             if(competidores[i] != null && competidores[i].getID() == ID){
@@ -70,9 +81,6 @@ public class Simulador implements Serializable{
         qtdVeiculos--;
     }
 
-    /*public void abastecerVeiculo(int id, float f){
-        competidores[buscarCompetidor(id)].abastecer(f);
-    }*/
 
     public void imprimirDados(){
         for(int i = 0; i < competidores.length; i++){
