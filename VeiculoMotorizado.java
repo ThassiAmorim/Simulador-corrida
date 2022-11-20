@@ -40,6 +40,7 @@ public abstract class VeiculoMotorizado extends Veiculo implements Serializable 
         else{
             s += "Em debito.\n";
         }
+        s += (super.rodasCalibradas() ? "Rodas calibradas" : "Rodas descalibradas");
         return s;
     }
 
