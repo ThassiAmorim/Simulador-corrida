@@ -221,12 +221,23 @@ public class UsaSimulador {
     public static int pedirID(Simulador s){
         Scanner teclado = new Scanner(System.in);
         int id;
+        int validaID;
 
         try{
-            System.out.print("Digite o ID do veiculo que desejas remover: ");      
-            if(s.buscarCompetidor(id = teclado.nextInt()) != -1){
-                return id;
-            }
+            do{
+                System.out.print("Digite o ID do veiculo ou digite 0 para voltar ao menu principal: ");   
+                validaID = s.buscarCompetidor(id = teclado.nextInt());
+
+                if( validaID != -1){
+                    return id;
+                }
+                
+                System.out.println("ID incorreto");
+   
+                System.out.println("IDs disponiveis");
+                s.exibirCompetidores();
+                
+            }while (validaID == -1);
         }
         catch(Exception e){
             System.out.println("Dado Invalido.");

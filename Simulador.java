@@ -57,6 +57,14 @@ public class Simulador implements Serializable{
         return -1;
     }
 
+    public void exibirCompetidores(){
+        for(int i = 0; i < competidores.length; i++){
+            if(competidores[i] != null){
+                System.out.println(""+ competidores[i].getID());
+            }
+        }
+    }
+
     public void removerVeiculo(int id){
         competidores[buscarCompetidor(id)] = null;
         qtdVeiculos--;
