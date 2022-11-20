@@ -39,7 +39,7 @@ public class UsaSimulador {
                             System.out.println("Veiculo removido com sucesso.");
                         }
                         else{
-                            System.out.println("Veiculo nao encontrado.");
+                            System.out.println("Veiculo nao removido.");
                         }
                     }
                     else{
@@ -226,7 +226,12 @@ public class UsaSimulador {
         try{
             do{
                 System.out.print("Digite o ID do veiculo ou digite 0 para voltar ao menu principal: ");   
-                validaID = s.buscarCompetidor(id = teclado.nextInt());
+                id = teclado.nextInt();
+                validaID = s.buscarCompetidor(id);
+
+                if (id == 0){
+                    return -1;
+                }
 
                 if( validaID != -1){
                     return id;
