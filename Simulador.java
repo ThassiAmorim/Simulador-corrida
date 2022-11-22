@@ -39,6 +39,9 @@ public class Simulador implements Serializable{
 
                     case 'E': 
                     competidores[i] = new Esportivo(id); break;
+
+                    default:
+                        return -1;
                 }
                 
                 qtdVeiculos++; 
@@ -69,9 +72,15 @@ public class Simulador implements Serializable{
     }
 
     public void exibirCompetidores(){
+        String tipo = new String(); 
         for(int i = 0; i < competidores.length; i++){
             if(competidores[i] != null){
-                System.out.println(""+ competidores[i].getID());
+                if(competidores[i] instanceof Bicicleta){ tipo = "Bicicleta";}
+                else if(competidores[i] instanceof CarroPasseio){ tipo = "Carro de Passeio";}
+                else if(competidores[i] instanceof Esportivo){ tipo = "Esportivo";}
+                else{ tipo = "Motocicleta";}
+
+                System.out.println(competidores[i].getID() + " - " + tipo);
             }
         }
     }

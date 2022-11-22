@@ -232,7 +232,10 @@ public class UsaSimulador {
 
         try{
             do{
-                System.out.print("Digite o ID do veiculo ou digite 0 para voltar ao menu principal: ");   
+                System.out.println("\nIDs disponiveis:");
+                s.exibirCompetidores();
+                
+                System.out.print("\nDigite o ID do veiculo ou digite 0 para voltar ao menu principal: ");   
                 id = teclado.nextInt();
                 validaID = s.buscarCompetidor(id);
 
@@ -240,14 +243,11 @@ public class UsaSimulador {
                     return -1;
                 }
 
-                if( validaID != -1){
+                if( validaID != -1 ){
                     return id;
                 }
                 
-                System.out.println("ID na encontrado");
-   
-                System.out.println("IDs disponiveis");
-                s.exibirCompetidores();
+                System.out.println("\nID nao encontrado");  
                 
             }while (validaID == -1);
         }

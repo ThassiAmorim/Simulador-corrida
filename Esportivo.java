@@ -53,7 +53,7 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
     }*/
 
     public String toString(){
-        return "Carro Esportivo" + super.toString();
+        return "Carro Esportivo\n" + super.toString();
     }
 
 }

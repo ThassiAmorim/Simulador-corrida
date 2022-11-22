@@ -26,6 +26,6 @@ public class Bicicleta extends Veiculo implements Serializable{
     }
 
     public String toString(){
-        return "Bicicleta\n" + super.toString();
+        return "\nBicicleta\n" + super.toString();
     }
 }
