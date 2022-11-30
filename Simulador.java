@@ -144,8 +144,12 @@ public class Simulador implements Serializable{
     }
 
     public bollean calibrar(ind id){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Desejas Descalibrar(0) ou Calibrar(1) o pneu?");
+        int op = teclado.nextInt();
 
-        
+        System.out.println("");
+        int op = teclado.nextInt();
 
 
 
