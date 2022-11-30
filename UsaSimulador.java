@@ -82,7 +82,7 @@ public class UsaSimulador {
 
                     break;
 
-                case 4:
+                case 4: // movimentar 1 veiculo
                     
                     if(s.movimentar(pedirID(s))){
                         System.out.println("Veiculo movido com sucesso");
@@ -93,8 +93,16 @@ public class UsaSimulador {
 
                     break;
 
-                case 5:
-                break;
+                case 5: // movimentar 1 tipo
+                    
+                    if(s.movimentar(pedirTipo())){
+                        System.out.println("veiculos movidos com sucesso");
+                    }    
+                    else{
+                        System.out.println("Não foi possivel mover todos os veiculos solicitados");
+                    }
+
+                    break;
 
                 case 6:
                 break;
@@ -108,12 +116,8 @@ public class UsaSimulador {
                 break;
 
                 case 9:
-                    //if(s.calibrar(pedirID(s))){
-                        System.out.println("Calibrado/Descalibrado com sucesso.");
-                    //}
-                   // else{
-                        System.out.println("Ocorreu um erro.");
-                   // }
+                    
+                
 
                 break;
 
@@ -221,7 +225,7 @@ public class UsaSimulador {
 
        try{
             do{
-                System.out.print("Digite o tipo do veiculo (B - Bicicleta, P - Carro Popular, E - Carro Esportivo, M - Motocicleta): ");
+                System.out.print("Digite o tipo do veiculo (B - Bicicleta, P - Carro Passeio, E - Carro Esportivo, M - Motocicleta): ");
                 escolha = teclado.next().charAt(0);
                 escolha = Character.toUpperCase(escolha);
                 System.out.println(escolha);

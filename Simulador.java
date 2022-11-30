@@ -95,29 +95,73 @@ public class Simulador implements Serializable{
         return false;
     }
 
-    /*public void movimentar(ind id){
-
-        int n = buscarCompetidor(id);
-        if(competidores[n] instanceof Bicicleta){
-            return ((Bicicleta)competidores[n]).Mover();    
-        }
-        else if(competidores[n] instanceof CarroPasseio){
-            ((CarroPasseio)competidores[n]).Mover();
-            return 
-        }
-        else if(competidores[n] instanceof Esportivo){
-            return ((Esportivo)competidores[n]).Mover();
-        }
-        else if(competidores[n] instanceof Motocicleta){  
-            return ((Motocicleta)competidores[n]).Mover();
-        }
-        else 
-            return false;
-        
-    }*/
-
     public boolean movimentar(int id){
         return competidores[buscarCompetidor(id)].mover();
+    }
+
+    public boolean movimentar(char t){
+
+        boolean valida  = true;
+
+        if(t == 'B'){
+
+            for(int i = 0; i < competidores.length; i++){
+                if(competidores[i] != null && competidores[i] instanceof Bicicleta){
+                    if(!competidores[i].mover()){
+                        System.out.println("Erro ao mover veiculo: " + competidores[i].getID());
+                        valida = false;
+                    }
+                }
+            }
+        }
+        else if(t == 'P'){
+
+            for(int i = 0; i < competidores.length; i++){
+                if(competidores[i] != null && competidores[i] instanceof CarroPasseio){
+                    if(!competidores[i].mover()){
+                        System.out.println("Erro ao mover veiculo: " + competidores[i].getID());
+                        valida = false;
+                    }
+                }
+            }
+        }
+        if(t == 'E'){
+
+            for(int i = 0; i < competidores.length; i++){
+                if(competidores[i] != null && competidores[i] instanceof Esportivo){
+                    if(!competidores[i].mover()){
+                        System.out.println("Erro ao mover veiculo: " + competidores[i].getID());
+                        valida = false;
+                    }
+                }
+            }
+        }
+        if(t == 'M'){
+
+            for(int i = 0; i < competidores.length; i++){
+                if(competidores[i] != null && competidores[i] instanceof Motocicleta){
+                    if(!competidores[i].mover()){
+                        System.out.println("Erro ao mover veiculo: " + competidores[i].getID());
+                        valida = false;
+                    }
+                }
+            }
+        }
+       
+        return valida;
+    }
+
+    public boolean movimentar(){
+        boolean valida = true;
+        for(int i = 0; i < competidores.length; i++){
+            if(competidores[i] != null ){
+                if(!competidores[i].mover()){
+                    System.out.println("Erro ao mover veiculo: " + competidores[i].getID());
+                    valida false;
+                }
+            }
+        }
+        return valida;
     }
 
 
@@ -161,16 +205,6 @@ public class Simulador implements Serializable{
         }
     }
 
-    /*public boolean calibrar(int id){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Desejas Descalibrar(0) ou Calibrar(1) o pneu?");
-        int op = teclado.nextInt();
-
-        System.out.println("");
-        int op = teclado.nextInt();
-
-
-
-    }*/
+    
 
 }

@@ -19,6 +19,10 @@ public abstract class Veiculo implements Serializable{
         }
     } 
 
+    public int getQuantidadeRodas(){
+        return quantidadeRodas;
+    }
+
     public abstract boolean mover();
 
     public int getID(){
