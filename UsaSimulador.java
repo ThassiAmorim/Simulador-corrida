@@ -102,6 +102,11 @@ public class UsaSimulador {
                 break;
 
                 case 9:
+                    id = pedirID(s);
+
+                    
+
+
                 break;
 
                 case 10:

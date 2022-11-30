@@ -13,7 +13,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         desenho[0]="  ______\n";
         desenho[1]=" /|_||_\\`.__\n";
         desenho[2]="(   _    _ _\\ \n";
-        desenho[3]="=`-(_)--(_)-'\n\n";
+        desenho[3]="=`-(_)--(_)-'\n\n"; // comentario dentro do desenho
 
     }
 
