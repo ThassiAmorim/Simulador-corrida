@@ -31,7 +31,7 @@ public class UsaSimulador {
                     }
                 break;
 
-                case 2:
+                case 2: //remover
                     if(s.getQtdVeiculos() > 0){
                         id = pedirID(s);
                         if((id != -1)){
@@ -48,7 +48,7 @@ public class UsaSimulador {
 
                 break;
 
-                case 3:
+                case 3: // abastecer
                     float gas = 0;
                     id = pedirID(s);
 
@@ -84,8 +84,9 @@ public class UsaSimulador {
 
                     break;
 
-                case 4:
-                break;
+                case 4: // movimentar um veiculo
+                    
+                    break;
 
                 case 5:
                 break;

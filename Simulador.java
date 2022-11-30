@@ -90,6 +90,13 @@ public class Simulador implements Serializable{
         qtdVeiculos--;
     }
 
+    public void movimentar(ind id){
+        int n = buscarCompetidor(id);
+        if(competidores[n] instanceof Bicicleta){
+            competidores[n].setD
+        }
+    }
+
 
     public void imprimirDados(){
         for(int i = 0; i < competidores.length; i++){

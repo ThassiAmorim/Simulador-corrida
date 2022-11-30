@@ -28,6 +28,10 @@ public abstract class Veiculo implements Serializable{
     public int getDistanciaPercorrida() {
         return distanciaPercorrida;
     }
+
+    public void setDistanciaPercorrida(int distanciaPercorrida) {
+        this.distanciaPercorrida = distanciaPercorrida;
+    }
         
     public boolean rodasCalibradas(){
         for(int i = 0; i < quantidadeRodas;i++){
