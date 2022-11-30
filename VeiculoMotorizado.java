@@ -30,6 +30,8 @@ public abstract class VeiculoMotorizado extends Veiculo implements Serializable 
     public void abastecer(float f){
         this.combustivel += f;
     }
+
+    public abstract void Movimentar()
     
     public String toString(){
         

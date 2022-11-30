@@ -20,7 +20,7 @@ public class Bicicleta extends Veiculo implements Serializable{
             return false;
         }
 
-        //super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 2);
+        super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 2);
 
         return true;
     }

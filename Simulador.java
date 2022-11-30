@@ -98,8 +98,9 @@ public class Simulador implements Serializable{
     public void movimentar(ind id){
         int n = buscarCompetidor(id);
         if(competidores[n] instanceof Bicicleta){
-            competidores[n].setD
+            ((Bicicleta)competidores[n]).Movimentar();
         }
+        
     }
 
 

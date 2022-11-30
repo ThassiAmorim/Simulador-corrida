@@ -37,7 +37,7 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
         }
         
         if(valida){
-            //super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
+            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
         }
         
         return valida;

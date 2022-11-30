@@ -34,7 +34,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         }
         
         if(valida){
-            //super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 5);
+            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 5);
         }
         
         return valida;

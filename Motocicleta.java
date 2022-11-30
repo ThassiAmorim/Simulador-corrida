@@ -33,7 +33,7 @@ public class Motocicleta extends VeiculoMotorizado implements IPVA, Serializable
         }
         
         if(valida){
-            //super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 3);
+            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 3);
         }
         
         return valida;
