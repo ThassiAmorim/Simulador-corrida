@@ -122,12 +122,27 @@ public class UsaSimulador {
                 break;
 
                 case 10:
+                    if(s.calibragemTipo(pedirTipo(), true)){
+                        System.out.println("Calibrado com sucesso.");
+                    }
+                    else{
+                        System.out.println("Ocorreu um erro.");
+                    }
+                    
                 break;
 
                 case 11:
+                    if(s.calibragemTipo(pedirTipo(), false)){
+                        System.out.println("Calibrado com sucesso.");
+                    }
+                    else{
+                        System.out.println("Ocorreu um erro.");
+                    }
                 break;
                 
                 case 12:
+                    s.desenharPista();
+
                 break;
 
                 case 13:
@@ -196,7 +211,6 @@ public class UsaSimulador {
     public static int menu() {
         Scanner teclado = new Scanner(System.in);
         int escolha;
-        //boolean valida;
 
         imprimirMenu();
 

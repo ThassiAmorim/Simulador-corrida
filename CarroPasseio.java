@@ -13,7 +13,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         desenho[0]="  ______\n";
         desenho[1]=" /|_||_\\`.__\n";
         desenho[2]="(   _    _ _\\ \n";
-        desenho[3]="=`-(_)--(_)-'\n\n"; // comentario dentro do desenho
+        desenho[3]="=`-(_)--(_)-'\n\n"; 
 
     }
 
@@ -34,7 +34,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         }
         
         if(valida){
-            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 5);
+            (Veiculo)super.setDistanciaPercorrida((Veiculo)super.getDistanciaPercorrida() + 5);
         }
         
         return valida;
@@ -42,6 +42,21 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
 
     public String toString(){
         return "Carro de Passeio\n" + super.toString();
+    }
+
+    private void auxiliaDesenho(int dist){
+        System.out.print(" ");
+    }
+
+    public void desenhar(){
+        int aux = (Veiculo)super.getDistanciaPercorrida();
+
+        System.out.print("ID: " + (Veiculo)super.getID());
+
+        auxiliaDesenho(aux); System.out.print(desenho[0]);
+        auxiliaDesenho(aux); System.out.print(desenho[1]);
+        auxiliaDesenho(aux); System.out.print(desenho[2]);
+        auxiliaDesenho(aux); System.out.print(desenho[3]);
     }
 
 }

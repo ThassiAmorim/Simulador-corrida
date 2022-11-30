@@ -47,4 +47,21 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
         return "Carro Esportivo\n" + super.toString();
     }
 
+    private void auxiliaDesenho(int dist){
+        System.out.print(" ");
+    }
+
+    public void desenhar(){
+        int aux = (Veiculo)super.getDistanciaPercorrida();
+
+        System.out.print("ID: " + (Veiculo)super.getID());
+
+        auxiliaDesenho(aux); System.out.print(desenho[0]);
+        auxiliaDesenho(aux); System.out.print(desenho[1]);
+        auxiliaDesenho(aux); System.out.print(desenho[2]);
+        auxiliaDesenho(aux); System.out.print(desenho[3]);
+        auxiliaDesenho(aux); System.out.print(desenho[4]);
+        auxiliaDesenho(aux); System.out.print(desenho[5]);
+    }
+
 }

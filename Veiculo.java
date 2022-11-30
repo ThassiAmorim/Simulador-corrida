@@ -46,6 +46,22 @@ public abstract class Veiculo implements Serializable{
         return true;
     }
 
+    public void calibragem(int pos, int v){
+        if(v == 1){
+            rodasVeiculo[pos].setCalibragemPneu(true);
+        }
+        else{
+            rodasVeiculo[pos].setCalibragemPneu(false);
+        }
+    }
+
+    public boolean calibragemPneus(boolean calibragem){
+        for(int i = 0; i < quantidadeRodas; i++){
+            rodasVeiculo[i].setCalibragemPneu(calibragem);
+        }
+        return true;
+    }
+
 
     public String toString(){
         return "ID: " + this.id + ".\n";
