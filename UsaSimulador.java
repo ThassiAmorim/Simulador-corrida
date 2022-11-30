@@ -31,7 +31,7 @@ public class UsaSimulador {
                     }
                 break;
 
-                case 2: //remover
+                case 2:
                     if(s.getQtdVeiculos() > 0){
                         if(s.removerVeiculo(pedirID(s))){
                             System.out.println("Veiculo removido com sucesso.");
@@ -46,7 +46,7 @@ public class UsaSimulador {
 
                 break;
 
-                case 3: // abastecer
+                case 3:
                     float gas = 0;
                     id = pedirID(s);
 
@@ -82,9 +82,8 @@ public class UsaSimulador {
 
                     break;
 
-                case 4: // movimentar um veiculo
-                    
-                    break;
+                case 4:
+                break;
 
                 case 5:
                 break;
@@ -101,10 +100,12 @@ public class UsaSimulador {
                 break;
 
                 case 9:
-                    id = pedirID(s);
-
-
-
+                    if(s.calibrar(pedirID(s))){
+                        System.out.println("Calibrado/Descalibrado com sucesso.");
+                    }
+                    else{
+                        System.out.println("Ocorreu um erro.");
+                    }
 
                 break;
 
