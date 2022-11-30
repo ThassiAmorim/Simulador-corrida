@@ -26,6 +26,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         }
         if(!super.rodasCalibradas()){
             valida = false;
+            System.out.println("Rodas descalibradas");
         }
         
         if(!this.isPagoIPVA()){
@@ -34,24 +35,26 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         }
         
         if(valida){
-            (Veiculo)super.setDistanciaPercorrida((Veiculo)super.getDistanciaPercorrida() + 5);
+            super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 5);
         }
         
         return valida;
     }
 
     public String toString(){
-        return "Carro de Passeio\n" + super.toString();
+        return "\nCarro de Passeio\n" + super.toString();
     }
 
     private void auxiliaDesenho(int dist){
-        System.out.print(" ");
+        for(int i = 0; i < dist; i++){
+            System.out.print(" ");
+        }
     }
 
     public void desenhar(){
-        int aux = (Veiculo)super.getDistanciaPercorrida();
+        int aux = super.getDistanciaPercorrida();
 
-        System.out.print("ID: " + (Veiculo)super.getID());
+        System.out.println("ID: " + super.getID());
 
         auxiliaDesenho(aux); System.out.print(desenho[0]);
         auxiliaDesenho(aux); System.out.print(desenho[1]);

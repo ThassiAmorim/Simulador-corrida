@@ -62,6 +62,8 @@ public abstract class Veiculo implements Serializable{
         return true;
     }
 
+    public abstract void desenhar();
+
 
     public String toString(){
         return "ID: " + this.id + ".\n";

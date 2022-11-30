@@ -157,7 +157,7 @@ public class Simulador implements Serializable{
             if(competidores[i] != null ){
                 if(!competidores[i].mover()){
                     System.out.println("Erro ao mover veiculo: " + competidores[i].getID());
-                    valida false;
+                    valida = false;
                 }
             }
         }
@@ -209,12 +209,14 @@ public class Simulador implements Serializable{
         Scanner teclado = new Scanner(System.in);
         System.out.println("Deseja Descalibrar(0) ou Calibrar(1) o pneu?");
         int op = teclado.nextInt();
+        int pneu;
+        boolean valida;
 
         do{
             System.out.println("Qual pneu deseja?");
-            int pneu = teclado.nextInt();
+            pneu = teclado.nextInt();
 
-            boolean valida = (pneu <= (Veiculo)competidores[buscarCompetidor(id)].getQuantidadeRodas() || pneu < 0);
+            valida = (pneu <= competidores[buscarCompetidor(id)].getQuantidadeRodas() || pneu < 0);
             while(valida){
                 System.out.println("Nao existe essa roda");
             }
@@ -222,7 +224,7 @@ public class Simulador implements Serializable{
         }while(valida);
 
         
-        (Veiculo)competidores[buscarCompetidor(id)].calibragem(pneu, op);
+        competidores[buscarCompetidor(id)].calibragem(pneu, op);
         return true;
 
     }
@@ -233,28 +235,28 @@ public class Simulador implements Serializable{
             case 'B':
                 for(int i = 0; i < competidores.length; i++){
                     if(competidores[i] != null &&  competidores[i] instanceof Bicicleta){
-                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                        competidores[i].calibragemPneus(calibragem);
                     }
                 }
             break;
             case 'P':
                 for(int i = 0; i < competidores.length; i++){
                     if(competidores[i] != null &&  competidores[i] instanceof CarroPasseio){
-                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                        competidores[i].calibragemPneus(calibragem);
                     }
                 }
             break;
             case 'E':
                 for(int i = 0; i < competidores.length; i++){
                     if(competidores[i] != null &&  competidores[i] instanceof Esportivo){
-                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                        competidores[i].calibragemPneus(calibragem);
                     }
                 }
             break;
             case 'M':
                 for(int i = 0; i < competidores.length; i++){
                     if(competidores[i] != null &&  competidores[i] instanceof Motocicleta){
-                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                        competidores[i].calibragemPneus(calibragem);
                     }
                 }
             break;

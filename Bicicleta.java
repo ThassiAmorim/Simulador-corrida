@@ -30,13 +30,15 @@ public class Bicicleta extends Veiculo implements Serializable{
     }
 
     private void auxiliaDesenho(int dist){
-        System.out.print(" ");
+        for(int i = 0; i < dist; i++){
+            System.out.print(" ");
+        }
     }
 
     public void desenhar(){
-        int aux = (Veiculo)super.getDistanciaPercorrida();
+        int aux = super.getDistanciaPercorrida();
 
-        System.out.print("ID: " + (Veiculo)super.getID());
+        System.out.println("ID: " + super.getID());
 
         auxiliaDesenho(aux); System.out.print(desenho[0]);
         auxiliaDesenho(aux); System.out.print(desenho[1]);

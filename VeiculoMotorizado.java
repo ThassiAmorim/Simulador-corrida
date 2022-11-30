@@ -31,7 +31,6 @@ public abstract class VeiculoMotorizado extends Veiculo implements Serializable 
         this.combustivel += f;
     }
 
-    public abstract boolean mover();
     
     public String toString(){
         
