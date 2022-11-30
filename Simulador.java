@@ -85,9 +85,14 @@ public class Simulador implements Serializable{
         }
     }
 
-    public void removerVeiculo(int id){
-        competidores[buscarCompetidor(id)] = null;
-        qtdVeiculos--;
+    public boolean removerVeiculo(int id){
+        if(id != -1){
+            competidores[buscarCompetidor(id)] = null;
+            qtdVeiculos--;
+            return true;
+        }
+        
+        return false;
     }
 
     public void movimentar(ind id){

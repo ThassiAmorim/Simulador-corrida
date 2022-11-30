@@ -39,15 +39,6 @@ public class Motocicleta extends VeiculoMotorizado implements IPVA, Serializable
         return valida;
     }
 
-    /*public float calcularIPVA(){
-        return IPVA.VALOR_BASE * IPVA.CTE_MOTOCICLETA;
-    }
-
-    public float calcularValor(){
-        Random r = new Random();
-        return r.nextFloat() * 500;
-    }*/
-
     public String toString(){
         return "Motocicleta\n" + super.toString();
     }

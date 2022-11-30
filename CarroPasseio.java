@@ -40,15 +40,6 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         return valida;
     }
 
-    /*public float calcularIPVA(){
-        return IPVA.VALOR_BASE * IPVA.CTE_PASSEIO;
-    }
-
-    public float calcularValor(){
-        Random r = new Random();
-        return r.nextFloat() * 2000;
-    }*/
-
     public String toString(){
         return "Carro de Passeio\n" + super.toString();
     }

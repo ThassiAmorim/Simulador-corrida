@@ -43,15 +43,6 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
         return valida;
     }
 
-    /*public float calcularIPVA(){
-        return IPVA.VALOR_BASE * IPVA.CTE_ESPORTIVO;
-    }
-
-    public float calcularValor(){
-        Random r = new Random();
-        return r.nextFloat() * 10000;
-    }*/
-
     public String toString(){
         return "Carro Esportivo\n" + super.toString();
     }
