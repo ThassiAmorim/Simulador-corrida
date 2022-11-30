@@ -96,10 +96,23 @@ public class Simulador implements Serializable{
     }
 
     public void movimentar(ind id){
+        
         int n = buscarCompetidor(id);
         if(competidores[n] instanceof Bicicleta){
-            ((Bicicleta)competidores[n]).Movimentar();
+            return ((Bicicleta)competidores[n]).Mover();    
         }
+        else if(competidores[n] instanceof CarroPasseio){
+            ((CarroPasseio)competidores[n]).Mover();
+            return 
+        }
+        else if(competidores[n] instanceof Esportivo){
+            return ((Esportivo)competidores[n]).Mover();
+        }
+        else if(competidores[n] instanceof Motocicleta){  
+            return ((Motocicleta)competidores[n]).Mover();
+        }
+        else 
+            return false;
         
     }
 

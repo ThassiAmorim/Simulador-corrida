@@ -42,7 +42,7 @@ public abstract class Veiculo implements Serializable{
         return true;
     }
 
-    public abstract void Movimentar()
+    public abstract boolean Mover()
 
 
     public String toString(){
