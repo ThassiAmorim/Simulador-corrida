@@ -128,17 +128,17 @@ public class Simulador implements Serializable{
     public void imprimirDados(char escolha){
         switch(escolha){
             case 'B':
-            for(int i = 0; i < competidores.length; i++){
-            if(competidores[i] != null && competidores[i] instanceof Bicicleta){
-                System.out.println(competidores[i]);
-            }
+                for(int i = 0; i < competidores.length; i++){
+                if(competidores[i] != null && competidores[i] instanceof Bicicleta){
+                    System.out.println(competidores[i]);
+                }
             } break;
 
             case 'M': 
-            for(int i = 0; i < competidores.length; i++){
-                if(competidores[i] != null && competidores[i] instanceof Motocicleta){
-                    System.out.println(competidores[i]);
-                }
+                for(int i = 0; i < competidores.length; i++){
+                    if(competidores[i] != null && competidores[i] instanceof Motocicleta){
+                        System.out.println(competidores[i]);
+                    }
             } break;
             
             case 'P': 
@@ -159,16 +159,69 @@ public class Simulador implements Serializable{
 
     public boolean calibrar(int id){
         Scanner teclado = new Scanner(System.in);
-        System.out.println("Desejas Descalibrar(0) ou Calibrar(1) o pneu?");
+        System.out.println("Deseja Descalibrar(0) ou Calibrar(1) o pneu?");
         int op = teclado.nextInt();
 
         do{
-            System.out.println("Qual pneu desejas?");
+            System.out.println("Qual pneu deseja?");
             int pneu = teclado.nextInt();
-        }while(pneu <= (Veiculo)competidores[buscarCompetidor(id)].getQuantidadeRodas());
 
+            bollean valida = (pneu <= (Veiculo)competidores[buscarCompetidor(id)].getQuantidadeRodas() || pneu < 0);
+            while(valida){
+                System.out.println("Nao existe essa roda");
+            }
+            
+        }while(valida);
 
+        
+        (Veiculo)competidores[buscarCompetidor(id)].calibragem(pneu, op);
+        return true;
 
+    }
+
+    public boolean calibragemTipo(char tipo, boolean calibragem){
+
+        switch(tipo){
+            case 'B':
+                for(int i = 0; i < competidores.length; i++){
+                    if(competidores[i] != null &&  competidores[i] instanceof Bicicleta){
+                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                    }
+                }
+            break;
+            case 'P':
+                for(int i = 0; i < competidores.length; i++){
+                    if(competidores[i] != null &&  competidores[i] instanceof CarroPasseio){
+                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                    }
+                }
+            break;
+            case 'E':
+                for(int i = 0; i < competidores.length; i++){
+                    if(competidores[i] != null &&  competidores[i] instanceof Esportivo){
+                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                    }
+                }
+            break;
+            case 'M':
+                for(int i = 0; i < competidores.length; i++){
+                    if(competidores[i] != null &&  competidores[i] instanceof Motocicleta){
+                        (Veiculo)competidores[i].calibragemPneus(calibragem);
+                    }
+                }
+            break;
+        }
+        return true;
+
+        
+    }
+
+    public void desenharPista(){
+        for(int i = 0; i < competidores.length; i++){
+            if(competidores[i] != null){
+                competidores[i].desenhar();
+            }
+        }
     }
 
 }

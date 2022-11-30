@@ -43,4 +43,14 @@ public class Motocicleta extends VeiculoMotorizado implements IPVA, Serializable
         return "Motocicleta\n" + super.toString();
     }
 
+    public void desenhar(){
+        int aux = (Veiculo)super.getDistanciaPercorrida();
+
+        System.out.print("ID: " + (Veiculo)super.getID());
+
+        auxiliaDesenho(aux); System.out.print(desenho[0]);
+        auxiliaDesenho(aux); System.out.print(desenho[1]);
+        auxiliaDesenho(aux); System.out.print(desenho[2]);
+    }
+
 }
