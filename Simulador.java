@@ -95,8 +95,8 @@ public class Simulador implements Serializable{
         return false;
     }
 
-    public void movimentar(ind id){
-        
+    /*public void movimentar(ind id){
+
         int n = buscarCompetidor(id);
         if(competidores[n] instanceof Bicicleta){
             return ((Bicicleta)competidores[n]).Mover();    
@@ -114,6 +114,10 @@ public class Simulador implements Serializable{
         else 
             return false;
         
+    }*/
+
+    public boolean movimentar(int id){
+        return competidores[buscarCompetidor(id)].mover();
     }
 
 
@@ -157,7 +161,7 @@ public class Simulador implements Serializable{
         }
     }
 
-    public bollean calibrar(ind id){
+    /*public boolean calibrar(int id){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Desejas Descalibrar(0) ou Calibrar(1) o pneu?");
         int op = teclado.nextInt();
@@ -167,6 +171,6 @@ public class Simulador implements Serializable{
 
 
 
-    }
+    }*/
 
 }

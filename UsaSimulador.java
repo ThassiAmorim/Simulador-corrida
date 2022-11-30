@@ -83,7 +83,15 @@ public class UsaSimulador {
                     break;
 
                 case 4:
-                break;
+                    
+                    if(s.movimentar(pedirID(s))){
+                        System.out.println("Veiculo movido com sucesso");
+                    }
+                    else{
+                        System.out.println("Erro ao mover veiculo");
+                    }
+
+                    break;
 
                 case 5:
                 break;
@@ -100,12 +108,12 @@ public class UsaSimulador {
                 break;
 
                 case 9:
-                    if(s.calibrar(pedirID(s))){
+                    //if(s.calibrar(pedirID(s))){
                         System.out.println("Calibrado/Descalibrado com sucesso.");
-                    }
-                    else{
+                    //}
+                   // else{
                         System.out.println("Ocorreu um erro.");
-                    }
+                   // }
 
                 break;
 
