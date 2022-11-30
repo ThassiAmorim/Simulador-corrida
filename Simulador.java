@@ -157,13 +157,15 @@ public class Simulador implements Serializable{
         }
     }
 
-    public bollean calibrar(ind id){
+    public boolean calibrar(int id){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Desejas Descalibrar(0) ou Calibrar(1) o pneu?");
         int op = teclado.nextInt();
 
-        System.out.println("");
-        int op = teclado.nextInt();
+        do{
+            System.out.println("Qual pneu desejas?");
+            int pneu = teclado.nextInt();
+        }while(pneu <= (Veiculo)competidores[buscarCompetidor(id)].getQuantidadeRodas());
 
 
 
