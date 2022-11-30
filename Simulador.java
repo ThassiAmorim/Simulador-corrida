@@ -143,4 +143,12 @@ public class Simulador implements Serializable{
         }
     }
 
+    public bollean calibrar(ind id){
+
+        
+
+
+
+    }
+
 }
