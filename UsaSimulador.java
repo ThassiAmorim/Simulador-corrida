@@ -33,9 +33,7 @@ public class UsaSimulador {
 
                 case 2:
                     if(s.getQtdVeiculos() > 0){
-                        id = pedirID(s);
-                        if((id != -1)){
-                            s.removerVeiculo(id);
+                        if(s.removerVeiculo(pedirID(s))){
                             System.out.println("Veiculo removido com sucesso.");
                         }
                         else{
@@ -104,7 +102,7 @@ public class UsaSimulador {
                 case 9:
                     id = pedirID(s);
 
-                    
+
 
 
                 break;
