@@ -6,8 +6,6 @@ public abstract class VeiculoMotorizado extends Veiculo implements Serializable 
     private float combustivel;
     private float valorIPVA;
     private boolean pagoIPVA;
-    
-
     private float valor;
     
     public VeiculoMotorizado(int id, int quantidadeRodas, float valorIPVA, float valor){
