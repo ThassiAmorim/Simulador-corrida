@@ -21,6 +21,7 @@ public abstract class VeiculoMotorizado extends Veiculo implements Serializable 
         return combustivel;
     }
 
+
     public boolean isPagoIPVA() {
             return pagoIPVA;
         }
@@ -32,7 +33,7 @@ public abstract class VeiculoMotorizado extends Veiculo implements Serializable 
     
     public String toString(){
         
-        String s = super.toString() + "Valor do IPVA: " + this.valorIPVA + ".\nIPVA: ";
+        String s = super.toString() + "Combustivel: "+ this.combustivel +"\nValor do IPVA: " + this.valorIPVA + ".\nIPVA: ";
         if(this.pagoIPVA){
             s += "Pago.\n";
         }

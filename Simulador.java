@@ -209,6 +209,12 @@ public class Simulador implements Serializable{
         Scanner teclado = new Scanner(System.in);
         System.out.println("Deseja Descalibrar(0) ou Calibrar(1) o pneu?");
         int op = teclado.nextInt();
+
+        while(op != 0 && op != 1){
+            System.out.print("Valor invalido.\n Digite novamente: ");
+            op = teclado.nextInt();
+        }
+
         int pneu;
         boolean valida;
 
@@ -216,15 +222,15 @@ public class Simulador implements Serializable{
             System.out.println("Qual pneu deseja?");
             pneu = teclado.nextInt();
 
-            valida = (pneu <= competidores[buscarCompetidor(id)].getQuantidadeRodas() || pneu < 0);
-            while(valida){
+            valida = (pneu > competidores[buscarCompetidor(id)].getQuantidadeRodas() || pneu <= 0);
+            if(valida){
                 System.out.println("Nao existe essa roda");
             }
             
         }while(valida);
 
         
-        competidores[buscarCompetidor(id)].calibragem(pneu, op);
+        competidores[buscarCompetidor(id)].calibragem(pneu - 1, op);
         return true;
 
     }

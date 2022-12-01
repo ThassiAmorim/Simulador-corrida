@@ -15,6 +15,7 @@ public class Bicicleta extends Veiculo implements Serializable{
 
     public boolean mover(){
         
+        System.out.println();
         if(!super.rodasCalibradas()){
             System.out.println("Rodas descalibradas");
             return false;

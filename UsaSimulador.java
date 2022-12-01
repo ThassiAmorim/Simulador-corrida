@@ -144,7 +144,7 @@ public class UsaSimulador {
 
                 case 11:
                     if(s.calibragemTipo(pedirTipo(), false)){
-                        System.out.println("Calibrado com sucesso.");
+                        System.out.println("Descalibrado com sucesso.");
                     }
                     else{
                         System.out.println("Ocorreu um erro.");
@@ -205,7 +205,7 @@ public class UsaSimulador {
 
     public static void imprimirMenu() {
 
-        System.out.println("Menu: ");
+        System.out.println("\nMenu: ");
         System.out.println("1) Incluir veiculo.");
         System.out.println("2) Remover veiculo.");
         System.out.println("3) Abastecer veiculo.");

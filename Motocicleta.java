@@ -19,6 +19,7 @@ public class Motocicleta extends VeiculoMotorizado implements IPVA, Serializable
     public boolean mover(){
         
         boolean valida = true;
+        System.out.println();
         if(super.getCombustivel() < this.GASTOMOTOCICLETA){
             System.out.println("Combustivel insuficiente");
             valida = false;
@@ -35,6 +36,7 @@ public class Motocicleta extends VeiculoMotorizado implements IPVA, Serializable
         
         if(valida){
             super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 3);
+            super.abastecer(-this.GASTOMOTOCICLETA);
         }
         
         return valida;

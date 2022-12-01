@@ -10,12 +10,12 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
         super(id, 4, IPVA.VALOR_BASE * IPVA.CTE_ESPORTIVO, (new Random()).nextFloat() * 10000);
         
     
-        desenho[0] = "           __\n";
-        desenho[1] = "        ~( @\\ \\   \n";
-        desenho[2] = "       _]_[_/_>____\n";
-        desenho[3] = "    /  __ \\<>  |  __ \\     \n";
-        desenho[4] = "    \\_/__\\_\\___|_/__\\_D\n";
-        desenho[5] = "      (__)       (__)    \n\n";
+        desenho[0] = "       __\n";
+        desenho[1] = "    ~( @\\ \\   \n";
+        desenho[2] = "   _]_[_/_>____\n";
+        desenho[3] = "/  __ \\<>  |  __ \\     \n";
+        desenho[4] = "\\_/__\\_\\___|_/__\\_D\n";
+        desenho[5] = "  (__)       (__)    \n\n";
         
 
     }
@@ -23,6 +23,7 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
     public boolean mover(){
         
         boolean valida = true;
+        System.out.println();
         if(super.getCombustivel() < this.GASTOESPORTIVO){
             System.out.println("Combustivel insuficiente");
             valida = false;
@@ -39,6 +40,7 @@ public class Esportivo extends VeiculoMotorizado implements IPVA, Serializable {
         
         if(valida){
             super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 10);
+            super.abastecer(-this.GASTOESPORTIVO);
         }
         
         return valida;

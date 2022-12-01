@@ -20,6 +20,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
     public boolean mover(){
         
         boolean valida = true;
+        System.out.println();
         if(super.getCombustivel() < this.GASTOPASSEIO){
             System.out.println("Combustivel insuficiente");
             valida = false;
@@ -36,6 +37,7 @@ public class CarroPasseio extends VeiculoMotorizado implements IPVA, Serializabl
         
         if(valida){
             super.setDistanciaPercorrida(super.getDistanciaPercorrida() + 5);
+            super.abastecer(-this.GASTOPASSEIO);
         }
         
         return valida;
