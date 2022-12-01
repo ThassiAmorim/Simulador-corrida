@@ -274,4 +274,28 @@ public class Simulador implements Serializable{
         }
     }
 
+    public void vencedor() {
+        int ganhador = -1;
+        int naFrente = 0;
+
+        for(Veiculo c : competidores){
+            if(c != null && c.getDistanciaPercorrida() >= naFrente){
+                ganhador = c.getID();
+                naFrente = c.getDistanciaPercorrida();
+            }
+        }
+
+        System.out.println("O grande ganhador:\n------------ " + ganhador + " -------------");
+        System.out.println( "                 __\n" +
+                        "              '.=====.'\n" +
+                        "            .-\\:      /-.\n" +
+                        "           | (|:."+ganhador+" |) |\n" +
+                        "            '-|:.     |-'\n" +
+                        "              \\::.    /\n" +
+                        "               '::. .'\n" +
+                        "                 ) (\n" +
+                        "               .' '._\n" +
+                        "               \"\"\"\"\"\"\"");
+
+    }
 }

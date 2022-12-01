@@ -192,6 +192,7 @@ public class UsaSimulador {
                 break;
 
                 case 15:
+                    s.vencedor();
                 break;
 
             }
